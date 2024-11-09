@@ -3,48 +3,44 @@
 # d(n) is the sum of all proper divisors n
 # d(a) = b and d(b) = a and a != b indicates numbers are amicable.
 
-def sum_divisors(x: int) -> int:
-    sum = 0
+import math 
 
-    for i in range(1, x):
-        if x % i == 0:
-            sum += i
-    return sum
+def sum_divisors(num: int) -> int:
+    # Final result of summation of divisors
+    result = 0
+     
+    # find all divisors which divides 'num'
+    i = 2
+    while i<= (math.sqrt(num)) :
+       
+        # if 'i' is divisor of 'num'
+        if (num % i == 0) :
+       
+            # if both divisors are same then
+            # add it only once else add both
+            if (i == (num / i)) :
+                result = result + i
+            else :
+                result = result +  (i + num/i)
+        i = i + 1
+         
+    # Add 1 to the result as 1 is also 
+    # a divisor
+    return int(result + 1)
 
 def is_amicable(x: int, y: int) -> bool:
-    return sum_divisors(x) == sum_divisors(y)
+    if x != y:
+        return sum_divisors(x) == y and sum_divisors(y) == x
+    return False
 
+sum = 0
+for a in range(1, 10001):
+    b = sum_divisors(a)
+    if a == sum_divisors(b) and a != b:
+        sum += a           
 
+print(sum)
 
-
-
-amicable = []
-temp = []
-
-def main():
-    sum = 0
-    for i in range(1, 10001):
-        
-        sum_div = sum_divisors(i)
-        found = False
-        
-        if [i, sum_div] not in temp:
-            pass
-        
-        if not found:
-            pass
-
-    for key in temp.keys():
-        if len(temp[key]) > 1:
-            for i in temp[key]:
-                amicable.append(i)
-
-    for i in amicable:
-        sum += i
-    return sum
-
-
-print(main())
 
 
 
