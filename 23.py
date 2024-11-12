@@ -36,15 +36,6 @@ def is_sum_of_abundants(x: int) -> bool:
         if y in abundants:
             return True
     return False
-
-# def is_sum_of_abundants(x: int) -> bool:
-#     flag = False
-#     for i in range(1, x):
-#         y = x - i
-#         if i in abundants and y in abundants:
-#             flag = True
-#             break
-#     return flag
     
 sum = 0
 
