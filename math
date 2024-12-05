@@ -1,0 +1,18 @@
+import math
+
+
+def combination(n: int, r: int) -> int:
+    """Returns a number of permutations a subset of r elements on a set of n elements with no repetition."""
+    return math.factorial(n) // (math.factorial(r) * math.factorial(n - r))
+
+def permutation(n: int, r: int) -> int:
+    """Returns a number of permutations a subset of r elements on a set of n elements with no repetition."""
+    return math.factorial(n) // math.factorial(n - r)
+
+
+# Example usage
+
+if __name__ == "__main__":
+    n = 125
+    r = 5
+    print(combination(n, r))  # Output: 317750  
